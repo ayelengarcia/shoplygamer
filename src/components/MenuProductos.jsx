@@ -10,7 +10,7 @@ const MenuProductos = () => {
   const [productos, setProductos] = useState([]);
 
   const getProductos = () => {
-    axios.get("../../products.json").then((response) => {
+    axios.get("/products.json").then((response) => {
       setProductos(response.data);
     });
   };
