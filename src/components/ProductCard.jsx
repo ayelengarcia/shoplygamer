@@ -11,9 +11,12 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const ProductCard = ({ image, title, price, category }) => {
+const ProductCard = ({ image, title, price, categ }) => {
+
+  const { category } = useParams();
+
   return (
     <Card
       minW="m"
@@ -47,11 +50,19 @@ const ProductCard = ({ image, title, price, category }) => {
       <Divider flex="1" />
       <CardFooter flex="1" alignItems="end">
         <ButtonGroup>
-          <Link key={title} to={`${category}/${title}`}>
-            <Button variant="solid" colorScheme="blue">
-              Ver detalle
-            </Button>
-          </Link>
+          {category !== undefined ? (
+            <Link key={title} to={`${title}`}>
+              <Button variant="solid" colorScheme="blue">
+                Ver detalle
+              </Button>
+            </Link>
+          ) : (
+            <Link key={title} to={`${categ}/${title}`}>
+              <Button variant="solid" colorScheme="blue">
+                Ver detalle
+              </Button>
+            </Link>
+          )}
 
           <Button variant="ghost" colorScheme="blue">
             Añadir a carrito

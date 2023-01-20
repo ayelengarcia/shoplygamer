@@ -21,7 +21,7 @@ const ItemListContainer = ({ productos }) => {
             image={producto.image}
             title={producto.title}
             price={producto.price}
-            category={producto.category}
+            categ={producto.category}
           />
         );
       })}

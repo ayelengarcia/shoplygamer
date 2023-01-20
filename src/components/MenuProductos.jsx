@@ -1,5 +1,5 @@
 import { Grid, GridItem, Divider } from "@chakra-ui/react";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ItemListContainer from "./ItemListContainer";
 import ItemDetail from "./ItemDetail";
@@ -27,7 +27,7 @@ const MenuProductos = () => {
     "Almacenamiento",
     "Fuentes",
     "Gabinetes",
-    "Monitores",
+    "Monitores"
   ];
 
   return (
@@ -43,7 +43,7 @@ const MenuProductos = () => {
             <p>Ordenar por</p> <IoMdArrowDropdown color="#3182ce" />
           </button>
           <ul className="list-ul">
-            <Link to={`todos`}>
+            <Link to={"/productos"}>
               <li>Todos</li>
             </Link>
             <li>Mayor Precio</li>
