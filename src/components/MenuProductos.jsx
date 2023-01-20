@@ -11,7 +11,6 @@ const MenuProductos = () => {
 
   const getProductos = () => {
     axios.get("../../products.json").then((response) => {
-      console.log(response.data);
       setProductos(response.data);
     });
   };
