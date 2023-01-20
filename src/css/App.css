@@ -1,0 +1,183 @@
+#root,
+html {
+  width: 100%;
+  background: url(/public/fondo-gamer2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+::-webkit-scrollbar-thumb {
+  background: #313b52;
+  border-radius: 10px;
+}
+
+.flexEnd {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexStart {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.flexAround {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  z-index: 2;
+  border-radius: 8px;
+  background-color: rgba(15, 14, 14, 0.527);
+  border: 1px solid #f9f9f985;
+  width: 280px;
+  height: 28px;
+  outline: none;
+  color: #f9f9f9;
+  text-indent: 10px;
+}
+
+.btnMenu:hover,
+.btnMenu[data-active] {
+  background-color: #001c52 !important;
+}
+
+.menuItem {
+  background-color: #001c52 !important;
+}
+.menuItem:hover {
+  background-color: rgba(15, 14, 14, 0.527) !important;
+}
+
+.carrito {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 28px;
+}
+.contador {
+  position: relative;
+  top: -8px;
+  left: -7px;
+  padding: 0 6px;
+  border-radius: 50px;
+  background-color: #3182ce;
+  font-size: 13px;
+}
+
+.logo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.imagenCont {
+  width: auto;
+  height: auto;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.imagen {
+  margin-left: auto;
+  margin-right: auto;
+  height: 230px;
+}
+
+.menu-desplegado {
+  position: absolute;
+  display: none !important;
+  gap: 5rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+.inicio {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #f9f9f9;
+  border-end-end-radius: 19px;
+  border-end-start-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 23px;
+  font-size: large;
+  color: #f9f9f9;
+  background-color: rgba(15, 14, 14, 0.9);
+}
+
+.contenedor-main {
+  display: flex;
+  justify-content: center;
+  margin-top: 23vh;
+}
+
+.nav-productos{
+  padding: 15px;
+  font-size: 1.1rem;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-prod{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-ul{
+  padding: 10px;
+  list-style: none;
+}
+
+.detail{
+  margin-top: 0;
+  flex-direction: column;
+}
+
+.img-detail{
+  max-width: 50%;
+  padding: 5px 0;
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px;
+}
+
+.title-detail{
+  font-size: 1.5rem;
+  padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .btnMenu {
+    display: none !important;
+  }
+  .menu-desplegado {
+    display: flex !important;
+  }
+}
