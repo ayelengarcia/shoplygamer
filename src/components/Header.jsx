@@ -13,7 +13,6 @@ import { Link, NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 const header = () => {
-
   return (
     <Grid
       h="150px"

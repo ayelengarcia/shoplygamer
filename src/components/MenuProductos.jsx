@@ -1,16 +1,13 @@
-import { Grid, GridItem, Divider } from "@chakra-ui/react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { Route, Routes, Link, NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Grid, GridItem, Divider } from "@chakra-ui/react";
+import useFirestore from "../customHooks/useFirestore";
 import ItemListContainer from "./ItemListContainer";
 import ItemDetail from "./ItemDetail";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
-import axios from "axios";
+import { useState } from "react";
 
 const MenuProductos = () => {
-  // fetch
-  const [productos, setProductos] = useState([]);
-  const getProductos = () => {axios.get("/products.json").then((response) => setProductos(response.data))};
-  useEffect(() => getProductos(), []);
+  const { productos, setProductos } = useFirestore();
 
   // mostrar y ocultar categorias
   const [order, changeOrder] = useState(false);
@@ -23,21 +20,25 @@ const MenuProductos = () => {
 
   //Ordenar por mayor y menor precio
   const orderMayorPrice = () => {
-    const orderProducts = [...productos].sort((a, b) => {return b.price - a.price});
-    setProductos(orderProducts)};
+    const orderProducts = [...productos].sort((a, b) => {
+      return b.price - a.price;
+    });
+    setProductos(orderProducts);
+  };
 
   const orderMenorPrice = () => {
-    const orderProducts = [...productos].sort((a, b) => {return a.price - b.price});
-    setProductos(orderProducts)};
+    const orderProducts = [...productos].sort((a, b) => {
+      return a.price - b.price;
+    });
+    setProductos(orderProducts);
+  };
 
   //Buscador
   const [search, setSearch] = useState("");
 
-  const searcher = (e) => {
-    setSearch(e.target.value);
-  };
+  const searcher = (e) => setSearch(e.target.value);
 
-  const resultado = !search ? productos : productos.filter((producto) => producto.title.toLowerCase().includes(search.toLowerCase()));
+  const resultado = !search ? productos : productos.filter((producto) => producto.title.toLowerCase().includes(search. toLowerCase()));
 
   const categories = [
     "Notebooks",
