@@ -19,8 +19,8 @@ const ProductCard = ({ image, title, price, categ }) => {
 
   return (
     <Card
-      minW="m"
-      maxW="lg"
+      minW="sm"
+      maxW="md"
       flex="1"
       my="0"
       backgroundColor="rgba(15, 14, 14, .8)"

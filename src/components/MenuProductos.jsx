@@ -1,22 +1,43 @@
 import { Grid, GridItem, Divider } from "@chakra-ui/react";
-import { Route, Routes, Link, Navigate } from "react-router-dom";
+import { Route, Routes, Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ItemListContainer from "./ItemListContainer";
 import ItemDetail from "./ItemDetail";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import axios from "axios";
 
 const MenuProductos = () => {
+  // fetch
   const [productos, setProductos] = useState([]);
+  const getProductos = () => {axios.get("/products.json").then((response) => setProductos(response.data))};
+  useEffect(() => getProductos(), []);
 
-  const getProductos = () => {
-    axios.get("/products.json").then((response) => {
-      setProductos(response.data);
-    });
+  // mostrar y ocultar categorias
+  const [order, changeOrder] = useState(false);
+  const [items, changeItems] = useState(false);
+  const [filter, changeFilter] = useState(false);
+
+  const [icon, changeIcon] = useState(false);
+  const [icon2, changeIcon2] = useState(false);
+  const [icon3, changeIcon3] = useState(false);
+
+  //Ordenar por mayor y menor precio
+  const orderMayorPrice = () => {
+    const orderProducts = [...productos].sort((a, b) => {return b.price - a.price});
+    setProductos(orderProducts)};
+
+  const orderMenorPrice = () => {
+    const orderProducts = [...productos].sort((a, b) => {return a.price - b.price});
+    setProductos(orderProducts)};
+
+  //Buscador
+  const [search, setSearch] = useState("");
+
+  const searcher = (e) => {
+    setSearch(e.target.value);
   };
-  useEffect(() => {
-    getProductos();
-  }, []);
+
+  const resultado = !search ? productos : productos.filter((producto) => producto.title.toLowerCase().includes(search.toLowerCase()));
 
   const categories = [
     "Notebooks",
@@ -27,11 +48,11 @@ const MenuProductos = () => {
     "Almacenamiento",
     "Fuentes",
     "Gabinetes",
-    "Monitores"
+    "Monitores",
   ];
 
   return (
-    <Grid px="2" pb="2" templateColumns="repeat(4, 1fr)" gap={1}>
+    <Grid px="2" pb="2" templateColumns="repeat(6, 1fr)" gap={1}>
       <GridItem
         borderRadius="8px"
         colSpan={1}
@@ -39,52 +60,99 @@ const MenuProductos = () => {
         color="#f9f9f9"
       >
         <div className="nav-productos">
-          <button className="btn-prod">
-            <p>Ordenar por</p> <IoMdArrowDropdown color="#3182ce" />
+          <button
+            className="btn-prod"
+            onClick={() => {
+              changeOrder(!order), changeIcon(!icon);
+            }}
+          >
+            <p>Ordenar</p>
+            {icon ? (
+              <IoMdArrowDropup color="#3182ce" />
+            ) : (
+              <IoMdArrowDropdown color="#3182ce" />
+            )}
           </button>
-          <ul className="list-ul">
-            <Link to={"/productos"}>
-              <li>Todos</li>
-            </Link>
-            <li>Mayor Precio</li>
-            <li>Menor Precio</li>
-          </ul>
+          {order && (
+            <ul className="list-ul">
+              <Link to={"/productos"}>Todos </Link>
+              <button onClick={() => orderMayorPrice(resultado)}>
+                Mayor Precio
+              </button>
+              <button onClick={() => orderMenorPrice(resultado)}>
+                Menor Precio
+              </button>
+            </ul>
+          )}
 
           <Divider flex="1" />
 
-          <button className="btn-prod">
-            <p>Categorias</p> <IoMdArrowDropdown color="#3182ce" />
+          <button
+            className="btn-prod"
+            onClick={() => {
+              changeItems(!items), changeIcon2(!icon2);
+            }}
+          >
+            <p>Categorias</p>
+            {icon2 ? (
+              <IoMdArrowDropup color="#3182ce" />
+            ) : (
+              <IoMdArrowDropdown color="#3182ce" />
+            )}
           </button>
 
-          <ul className="list-ul">
-            {categories.map((category) => (
-              <Link key={category} to={`${category}`}>
-                <li>{category}</li>
-              </Link>
-            ))}
-          </ul>
+          {items && (
+            <ul className="list-ul">
+              {categories.map((category) => (
+                <NavLink key={category} to={`${category}`}>
+                  <li>{category}</li>
+                </NavLink>
+              ))}
+            </ul>
+          )}
 
           <Divider flex="1" />
-          <button className="btn-prod">
-            <p>Filtros</p> <IoMdArrowDropdown color="#3182ce" />
+          <button
+            className="btn-prod"
+            onClick={() => {
+              changeFilter(!filter), changeIcon3(!icon3);
+            }}
+          >
+            <p>Filtros</p>
+            {icon3 ? (
+              <IoMdArrowDropup color="#3182ce" />
+            ) : (
+              <IoMdArrowDropdown color="#3182ce" />
+            )}
           </button>
-          <p className="list-ul">
-            Los filtros de productos son aplicables a las subcategorías, elegí
-            una en el menú de categorías.
-          </p>
+          {filter && (
+            <p className="list-ul">
+              Los filtros de productos son aplicables a las subcategorías, elegí
+              una en el menú de categorías.
+            </p>
+          )}
           <Divider flex="1" />
         </div>
       </GridItem>
 
-      <GridItem colSpan={3}>
+      <GridItem colSpan={5}>
+        <input
+          type="text"
+          className="search margin"
+          placeholder="Buscar..."
+          onChange={searcher}
+          value={search}
+        />
+
         <Routes>
           <Route
             path="/"
-            element={<ItemListContainer productos={productos} />}
+            element={<ItemListContainer productos={resultado} />}
           />
+
           <Route
             path="/:category"
-            element={<ItemListContainer productos={productos} />}
+            element={<ItemListContainer productos={resultado} />}
           />
 
           <Route

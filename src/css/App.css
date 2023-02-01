@@ -89,7 +89,7 @@ html {
 }
 
 .imagenCont {
-  width: auto;
+  max-width: auto;
   height: auto;
   background-color: white;
   border-top-left-radius: 5px;
@@ -97,9 +97,10 @@ html {
 }
 
 .imagen {
+  padding: 20px;
   margin-left: auto;
   margin-right: auto;
-  height: 230px;
+  max-width: 200px;
 }
 
 .menu-desplegado {
@@ -108,6 +109,10 @@ html {
   gap: 5rem;
   text-decoration: none;
   list-style: none;
+}
+
+.active {
+  color: #767d8b;
 }
 
 .inicio {
@@ -130,7 +135,7 @@ html {
   margin-top: 23vh;
 }
 
-.nav-productos{
+.nav-productos {
   padding: 15px;
   font-size: 1.1rem;
   display: flex;
@@ -139,38 +144,44 @@ html {
   align-items: flex-start;
 }
 
-.btn-prod{
+.btn-prod {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.list-ul{
+.list-ul {
   padding: 10px;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
-.detail{
+.detail {
   margin-top: 0;
   flex-direction: column;
 }
 
-.img-detail{
+.img-detail {
   max-width: 50%;
   padding: 5px 0;
 }
 
-.description{
+.description {
   display: flex;
   flex-direction: column;
   gap: 30px;
   margin: 20px;
 }
 
-.title-detail{
+.title-detail {
   font-size: 1.5rem;
   padding: 10px 0;
+}
+
+.margin{  
+  margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {

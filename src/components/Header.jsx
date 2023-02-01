@@ -9,14 +9,15 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 const header = () => {
+
   return (
     <Grid
       h="150px"
-      templateRows="repeat(3, 1fr)"
+      templateRows="repeat(2, 1fr)"
       templateColumns="repeat(6, 1fr)"
       pos="fixed"
       w="100%"
@@ -24,8 +25,8 @@ const header = () => {
       top="0"
     >
       <GridItem
-        colSpan={2}
-        rowSpan={2}
+        colSpan={3}
+        rowSpan={1}
         bg="#001C52"
         p="2"
         className="flexStart"
@@ -36,31 +37,25 @@ const header = () => {
       </GridItem>
 
       <GridItem
-        colSpan={2}
-        rowSpan={2}
+        colSpan={3}
+        rowSpan={1}
         bg="#001C52"
         color="#f9f9f9"
-        p="2"
-        className="flexCenter"
-      >
-        <input type="search" className="search" />
-      </GridItem>
-
-      <GridItem
-        colSpan={2}
-        rowSpan={2}
-        bg="#001C52"
-        color="#f9f9f9"
-        p="2"
+        px="2"
         className="flexEnd"
       >
         <Button variant="solid" colorScheme="blue">
-          LOGIN
+          INICIAR SESIÓN
         </Button>
       </GridItem>
 
       <Menu>
-        <GridItem colSpan={1} bg="rgba(15, 14, 14, 3)" p="2">
+        <GridItem
+          colSpan={1}
+          bg="rgba(15, 14, 14, 3)"
+          px="2"
+          className="flexCenter"
+        >
           <MenuButton
             className="btnMenu"
             as={IconButton}
@@ -78,10 +73,6 @@ const header = () => {
           >
             <Link to="/productos">
               <MenuItem className="menuItem">PRODUCTOS</MenuItem>
-            </Link>
-
-            <Link to="/armaTuPc">
-              <MenuItem className="menuItem">ARMA TU PC</MenuItem>
             </Link>
 
             <Link to="/ayuda">
@@ -102,18 +93,15 @@ const header = () => {
           color="#f9f9f9"
         >
           <nav className="menu-desplegado">
-            <Link to="/productos">
+            <NavLink to="/productos">
               <li className="item-desplegado">PRODUCTOS</li>
-            </Link>
-            <Link to="/armaTuPc">
-              <li className="item-desplegado">ARMA TU PC</li>
-            </Link>
-            <Link to="/ayuda">
+            </NavLink>
+            <NavLink to="/ayuda">
               <li className="item-desplegado">AYUDA</li>
-            </Link>
-            <Link to="/marcasSponsor">
+            </NavLink>
+            <NavLink to="/marcasSponsor">
               <li className="item-desplegado">MARCAS SPONSOR</li>
-            </Link>
+            </NavLink>
           </nav>
         </GridItem>
 
