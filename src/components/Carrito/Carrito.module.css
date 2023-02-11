@@ -56,6 +56,8 @@ p {
 }
 
 .precio {
+  display: flex;
+  justify-content: end;
   font-size: 1.4rem;
 }
 
@@ -85,14 +87,14 @@ span {
 
 .orderContainer {
   position: fixed;
-  top: 30vh;
+  top: 22vh;
   min-width: 30vw;
   background-color: #0e325cec;
   color: #f9f9f9;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   display: flex;
   padding: 23px;
   font-size: large;
@@ -100,4 +102,7 @@ span {
   border: 1px solid #6e6e6e;
   gap: 15px;
 }
+
+
+
 

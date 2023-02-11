@@ -13,7 +13,7 @@ const ItemDetail = ({ productos }) => {
   const { carrito, setCarrito, count, setCount, total, setTotal } = useContext(OrderContext);
   
   const toast = useToast({
-    position: "top",
+    position: "bottom",
     title: "Has agregado un producto al carrito",
     duration: 3000,
     isClosable: true,

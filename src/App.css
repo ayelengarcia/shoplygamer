@@ -54,3 +54,7 @@ html {
 .active {
   color: #767d8b;
 }
+
+.width{
+width: 100%;
+}

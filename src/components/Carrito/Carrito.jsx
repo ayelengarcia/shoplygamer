@@ -56,7 +56,7 @@ const Carrito = () => {
       <CarritoListContainer />
 
       <div className={styles.containerPago}>
-        <div className="flexStart">
+        <div className="flexStart" style={{ marginTop: "10px" }}>
           <img src="logo-shoply.png" alt="Logo" />
 
           <RadioGroup
@@ -78,9 +78,7 @@ const Carrito = () => {
           </RadioGroup>
         </div>
 
-        <div>
-          <p className={styles.precio}>Total: $ {total.toLocaleString()}</p>
-        </div>
+        <Text className={styles.precio} style={{width:"100%"}}>Total: $ {total.toLocaleString()}</Text>
       </div>
 
       <div className={styles.containerPago}>
@@ -118,8 +116,13 @@ const Carrito = () => {
               />
             </div>
           </div>
-          <ButtonGroup>
-            <Button variant="solid" colorScheme={theme.btn} type="submit">
+          <ButtonGroup width="220px" className="flexEnd">
+            <Button
+              mt="2"
+              variant="solid"
+              colorScheme={theme.btn}
+              type="submit"
+            >
               Comprar
             </Button>
           </ButtonGroup>
@@ -131,25 +134,22 @@ const Carrito = () => {
       <div className="flexCenter">
         {orden && (
           <div className={styles.orderContainer}>
-            <h3>ORDEN DE COMPRA</h3>
-            <Divider mb="3" my="2" />
-            <p>Nro orden: {ordenID}</p>
+            <div className="flexBetween width">
+              <h3>ORDEN DE COMPRA</h3>
+              <Button variant="ghost" colorScheme="blue" onClick={clearCarrito}>
+                X
+              </Button>
+            </div>
+            <Divider />
             <p>Nombre: {nombre}</p>
-            <p>Email: {email}</p>
             <p>Total: ${total.toLocaleString()}</p>
-
+            <p>Email: {email}</p>
+            <p>Nº orden: {ordenID}</p>
+            <Divider />
             <h2>
               Muchas Gracias por tu compra!. <br /> Te enviaremos un email para
               finalizarla 🙌
             </h2>
-            <Button
-              mt="3"
-              variant="solid"
-              colorScheme="facebook"
-              onClick={clearCarrito}
-            >
-              Cerrar
-            </Button>
           </div>
         )}
       </div>

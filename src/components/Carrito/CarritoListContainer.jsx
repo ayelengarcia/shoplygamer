@@ -33,7 +33,6 @@ const CarritoListContainer = () => {
   };
 
   const deleteCarrito = (item) => {
-    
     const existeProduct = carrito.find((product) => product.id === item.id);
     if (existeProduct) {
       const newCarrito = carrito.map((product) =>
@@ -45,7 +44,6 @@ const CarritoListContainer = () => {
     } else {
       setCarrito([...carrito, { ...item, amount: 1 }]);
     }
-
     setTotal(total - item.price);
     setCount(count - 1);
   };
@@ -56,7 +54,7 @@ const CarritoListContainer = () => {
       {carrito.map((item) => {
         return (
           <div key={item.id} className={styles.containerPago}>
-            <div className="flexStart">
+            <div className="flexStart" style={{marginTop:"20px"}}>
               <Image
                 boxSize="80px"
                 me="3"
@@ -66,7 +64,7 @@ const CarritoListContainer = () => {
               <h2 className={styles.title}>{item.title}</h2>
             </div>
 
-            <div className="flexCenter">
+            <div className="flexEnd width">
               <div className={styles.count}>
                 <p onClick={() => deleteCarrito(item)}>-</p>
                 <CartCounter
