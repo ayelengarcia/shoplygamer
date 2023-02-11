@@ -4,7 +4,7 @@ import useFirestore from "../../customHooks/useFirestore";
 import { useTheme } from "../../context/ThemeContext";
 import OrderContext from "../../context/OrderContext";
 import { useContext, useEffect, React } from "react";
-import { MdDeleteSweep } from "react-icons/Md";
+import { MdDeleteSweep } from "react-icons/md";
 import styles from "./Carrito.module.css";
 
 const Carrito = () => {
