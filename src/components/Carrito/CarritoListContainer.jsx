@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import styles from "./Carrito.module.css";
-import { MdDeleteForever } from "react-icons/Md";
+import { MdDeleteForever } from "react-icons/md";
 import { Image } from "@chakra-ui/react";
 import { useContext } from "react";
 import OrderContext from "../../context/OrderContext";
