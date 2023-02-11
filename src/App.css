@@ -1,0 +1,56 @@
+#root,
+html {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+::-webkit-scrollbar-thumb {
+  background: #313b52;
+  border-radius: 10px;
+}
+
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flexEnd {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexStart {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.flexAround {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.active {
+  color: #767d8b;
+}

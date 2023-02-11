@@ -1,0 +1,83 @@
+{
+  "Notebooks": [
+    {
+      "subcategories": {
+        "Marca": ["Lenovo", "ASUS", "Acer", "XPG"],
+        "Pulgadas": ["14", "15.6"]
+      }
+    }
+  ],
+
+  "Procesadores": [
+    {
+      "subcategories": {
+        "Familia": ["AMD", "Intel"]
+      }
+    }
+  ],
+
+  "Mothers": [
+    {
+      "subcategories": {
+        "Familia": ["AMD", "Intel"],
+        "Marca": ["Gigabyte", "ASUS", "Asrock", "MSI"]
+      }
+    }
+  ],
+
+  "Placas de video": [
+    {
+      "subcategories": {
+        "Familia": ["GeForce", "Radeon"],
+        "Marca": ["Asrock", "XFX", "Zotac", "GALAX"],
+        "Tipos de memoria": ["GDDR6X", "GDDR6", "DDR5"]
+      }
+    }
+  ],
+
+  "Memorias Ram": [
+    {
+      "subcategories": {
+        "Marca": ["Team", "GeiL"],
+        "Capacidad": ["8GB", "16GB"]
+      }
+    }
+  ],
+
+  "Almacenamiento": [
+    {
+      "subcategories": {
+        "Tipo": ["Disco Rigido", "Disco Solido SSD"],
+        "Capacidad": ["2TB", "6TB", "12TB", "128GB", "256GB"]
+      }
+    }
+  ],
+
+  "Fuentes": [
+    {
+      "subcategories": {
+        "Marca": ["Gigabyte", "ASUS", "Thermaltake", "Corsair", "Redragon"],
+        "Watts": ["450W", " 500W", "550W", "750W", "1000W"]
+      }
+    }
+  ],
+
+  "Gabinetes": [
+    {
+      "subcategories": {
+        "Marca": ["Cougar", "Be Quiet!", "Deepcool", "Sentey", "Performance"]
+      }
+    }
+  ],
+
+  "Monitores": [
+    {
+      "subcategories": {
+        "Marca": ["Samsung", "LG", "Hikvision"],
+        "Pulgadas": ["19", "20", "22", "24"]
+      }
+    }
+  ]
+}
+
+

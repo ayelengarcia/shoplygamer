@@ -1,0 +1,32 @@
+.carrito {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 28px;
+}
+
+.contador {
+  position: relative;
+  top: -8px;
+  left: -7px;
+  padding: 0 6px;
+  border-radius: 50px;
+  background-color: #0078ff;
+  font-size: 13px;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  border: 1px solid #7774742f;
+}
+
+.count > p {
+  cursor: pointer;
+} 
+
+span {
+  padding: 0px 5px;
+  border-left: 1px solid #7774742f;
+  border-right: 1px solid #7774742f;
+}

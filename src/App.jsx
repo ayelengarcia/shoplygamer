@@ -1,14 +1,21 @@
 import { Container } from "@chakra-ui/react";
-import "./css/App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import ThemeProvider from "./context/ThemeContext.jsx";
+import { OrderProvider } from "./context/OrderContext.jsx";
+import "./App.css";
 
 function App() {
+  
   return (
-    <Container maxW="100%" p="0">
-      <Header />
-      <Main />
-    </Container>
+    <ThemeProvider>
+      <OrderProvider>
+        <Container maxW="100%" p="0">
+          <Header />
+          <Main />
+        </Container>
+      </OrderProvider>
+    </ThemeProvider>
   );
 }
 

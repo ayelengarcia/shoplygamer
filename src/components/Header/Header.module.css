@@ -1,0 +1,22 @@
+.logo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.menuDesplegado {
+  position: absolute;
+  display: none !important;
+  gap: 5rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .btnMenu {
+    display: none !important;
+  }
+  .menuDesplegado {
+    display: flex !important;
+  }
+}

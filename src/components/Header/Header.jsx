@@ -10,9 +10,13 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link, NavLink } from "react-router-dom";
-import CartWidget from "./CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
+import styles from "./Header.module.css";
+import { useTheme } from "../../context/ThemeContext";
 
 const header = () => {
+  const { theme, changeTheme } = useTheme();
+
   return (
     <Grid
       h="150px"
@@ -26,60 +30,73 @@ const header = () => {
       <GridItem
         colSpan={3}
         rowSpan={1}
-        bg="#001C52"
+        bg={theme.bgHeader}
         p="2"
         className="flexStart"
       >
         <Link to="/">
-          <img className="logo" src="shoplylogo.png" alt="Shoply Gammer" />
+          <img
+            className={styles.logo}
+            src="shoplylogo.png"
+            alt="Shoply Gammer"
+          />
         </Link>
       </GridItem>
 
       <GridItem
         colSpan={3}
         rowSpan={1}
-        bg="#001C52"
+        bg={theme.bgHeader}
         color="#f9f9f9"
         px="2"
+        gap={3}
         className="flexEnd"
       >
-        <Button variant="solid" colorScheme="blue">
-          INICIAR SESIÓN
+        <Button
+          onClick={() => changeTheme()}
+          variant="ghost"
+          colorScheme="facebook"
+        >
+          {theme.icon}
+        </Button>
+        <Button fontSize=".8rem" variant="solid" colorScheme={theme.btn}>
+          INGRESAR
         </Button>
       </GridItem>
 
       <Menu>
-        <GridItem
-          colSpan={1}
-          bg="rgba(15, 14, 14, 3)"
-          px="2"
-          className="flexCenter"
-        >
+        <GridItem colSpan={1} bg={theme.bgMenu} px="1" className="flexCenter">
           <MenuButton
-            className="btnMenu"
+            className={styles.btnMenu}
             as={IconButton}
             aria-label="Options"
             icon={<HamburgerIcon color="#f9f9f9" />}
-            variant="outline"
             border="1px"
+            colorScheme={theme.btnHamburg}
             borderColor="#f9f9f985"
           />
           <MenuList
-            color="#f9f9f9"
-            bg="#001C52"
+            color={theme.color}
+            bg={theme.bgMenulist}
             border="1px"
             borderColor="#f9f9f985"
           >
             <Link to="/productos">
-              <MenuItem className="menuItem">PRODUCTOS</MenuItem>
+              <MenuItem bg={theme.bgMenulist} color="#f9f9f9">
+                PRODUCTOS
+              </MenuItem>
             </Link>
 
             <Link to="/ayuda">
-              <MenuItem className="menuItem">AYUDA</MenuItem>
+              <MenuItem bg={theme.bgMenulist} color="#f9f9f9">
+                AYUDA
+              </MenuItem>
             </Link>
 
             <Link to="/marcasSponsor">
-              <MenuItem className="menuItem">MARCAS SPONSOR</MenuItem>
+              <MenuItem bg={theme.bgMenulist} color="#f9f9f9">
+                MARCAS SPONSOR
+              </MenuItem>
             </Link>
           </MenuList>
         </GridItem>
@@ -87,31 +104,33 @@ const header = () => {
         <GridItem
           colSpan={4}
           className="flexAround"
-          bg="rgba(15, 14, 14, 3)"
+          bg={theme.bgMenu}
           p="2"
-          color="#f9f9f9"
+          color={theme.color}
         >
-          <nav className="menu-desplegado">
+          <nav className={styles.menuDesplegado}>
             <NavLink to="/productos">
-              <li className="item-desplegado">PRODUCTOS</li>
+              <li>PRODUCTOS</li>
             </NavLink>
             <NavLink to="/ayuda">
-              <li className="item-desplegado">AYUDA</li>
+              <li>AYUDA</li>
             </NavLink>
             <NavLink to="/marcasSponsor">
-              <li className="item-desplegado">MARCAS SPONSOR</li>
+              <li>MARCAS SPONSOR</li>
             </NavLink>
           </nav>
         </GridItem>
 
         <GridItem
           colSpan={1}
-          bg="rgba(15, 14, 14, 3)"
+          bg={theme.bgMenu}
           p="2"
           className="flexEnd"
-          color="#f9f9f9"
+          color={theme.color}
         >
-          <CartWidget />
+          <Link to="/carrito">
+            <CartWidget />
+          </Link>
         </GridItem>
       </Menu>
     </Grid>
