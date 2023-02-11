@@ -15,6 +15,7 @@ const Themes = {
     bgMenulist: "#385898",
     bgTrasluc: "rgba(269, 259, 249, 0.7)",
     divider: "dividerLight",
+    bgFondoApp: "url(/public/fondo-gamer-ligth.png)",
   },
 
   dark: {
@@ -30,6 +31,7 @@ const Themes = {
     bgMenulist: "#000000",
     bgTrasluc: "rgba(15, 14, 14, .8)",
     divider: "dividerDark",
+    bgFondoApp: "url(/public/fondo-gamer2.png)",
   },
 };
 

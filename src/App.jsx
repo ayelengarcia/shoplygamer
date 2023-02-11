@@ -6,11 +6,14 @@ import { OrderProvider } from "./context/OrderContext.jsx";
 import "./App.css";
 
 function App() {
-  
+
   return (
     <ThemeProvider>
       <OrderProvider>
-        <Container maxW="100%" p="0">
+        <Container
+          maxW="100%"
+          p="0"
+        >
           <Header />
           <Main />
         </Container>
