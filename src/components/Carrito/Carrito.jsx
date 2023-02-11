@@ -29,16 +29,20 @@ const Carrito = () => {
     }
   }, [orden, setOrden]);
 
- const showOrder = async (e) => {
-     e.preventDefault();
-    if (nombre && email && confirmEmail && total !== 0 && email === confirmEmail) {
-      setOrden(true);
-      setMsj(false);  
-      await getOrdenes(nombre, email, total); 
-    } else {
-      setMsj("Porfavor, verifique que todos los campos sean correctos y que haya productos en su carrito.");
-    }
-  };
+const showOrder = async (e) => {
+  e.preventDefault();
+  if (nombre && email && confirmEmail && total !== 0 && email === confirmEmail) {
+    setOrden(true);
+    setMsj(false);  
+    await getOrdenes(nombre, email, total); 
+    setTimeout(() => {
+      setOrden(false);
+      clearCarrito();
+    }, 5000);
+  } else {
+    setMsj("Porfavor, verifique que todos los campos sean correctos y que haya productos en su carrito.");
+  }
+};
 
   return (
     <div
