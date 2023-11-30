@@ -5,9 +5,24 @@ import { useTheme } from "../../context/ThemeContext";
 import Carrito from "../Carrito/Carrito";
 import styles from "./Main.module.css";
 import Ayuda from "./Ayuda";
+import { useState, useEffect } from "react";
 
 const Main = () => {
   const { theme } = useTheme();
+
+  const [vista, setVista] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVista(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className={styles[theme.bgUL]}>
@@ -19,10 +34,19 @@ const Main = () => {
               className={styles.inicio}
               style={{ background: theme.bgTrasluc, color: theme.color }}
             >
-              <Text className={styles.text} mb="5">
-                BIENVENIDOS/AS A SHOPLY GAMER 🖥!
-              </Text>
-              <img src="banner.png" alt="Banner" />
+              {vista <= 768 ? (
+                <img
+                  src="BannerMobile.png"
+                  alt="Banner"
+                  style={{ borderRadius: "3px" }}
+                />
+              ) : (
+                <img
+                  src="banner.png"
+                  alt="Banner"
+                  style={{ borderRadius: "3px" }}
+                />
+              )}
               <ButtonGroup mt="30px">
                 <Link to="/productos">
                   <Button variant="solid" colorScheme={theme.btn}>
@@ -34,17 +58,28 @@ const Main = () => {
           }
         />
 
-        <Route
-          path="ayuda"
-          element={ <Ayuda/>}/>
+        <Route path="ayuda" element={<Ayuda />} />
 
         <Route
           path="marcasSponsor"
           element={
-            <div className={styles.inicio}
-              style={{ background: theme.bgTrasluc, color: theme.color }} >
-              <Text className={styles.text} mb="12">Nuestros Sponsors 🛍</Text>
-              <Image boxSize='320px' objectFit='contain' src="sponsors.png" alt="Sponsors" />
+            <div
+              className={styles.inicio}
+              style={{ background: theme.bgTrasluc, color: theme.color }}
+            >
+              <Text className={styles.text} mb="3">
+                Nuestros Sponsors 🛍
+              </Text>
+
+              {vista <= 768 ? (
+                <Image objectFit="contain" src="sponsors.png" alt="Sponsors" />
+              ) : (
+                <Image
+                  objectFit="contain"
+                  src="sponsorsDeskt.png"
+                  alt="Sponsors"
+                />
+              )}
             </div>
           }
         />
